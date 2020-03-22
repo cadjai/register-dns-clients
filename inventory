@@ -1,4 +1,4 @@
 [ipa_hosts]
 
-
 [ipa_clients]
+localhost connection=local
