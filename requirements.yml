@@ -1,0 +1,5 @@
+
+- src: https://github.com/cadjai/register-dns-client-with-freeipa
+  scm: git
+  name: install-and-register-dns-client
+
