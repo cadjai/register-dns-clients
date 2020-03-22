@@ -29,6 +29,7 @@
     - ipa_port: 
     - ipa_admin_username:
     - ipa_admin_password:
+    - add_hosts_to_ipa: true
   vars_files:
     - hosts_info.yml
   tasks:
@@ -36,5 +37,7 @@
       include_role:
         name: install-and-register-dns-client
         tasks_from: register-host-with-dns-server.yml
-
+      when:
+        - add_hosts_to_ipa is defined
+        - add_hosts_to_ipa | bool
 
