@@ -11,4 +11,12 @@ The following fields are expected for each record: IP, FQDN, Host Domain, Mac Ad
 The record should like following 
 ``` 192.168.0.1  myhost.mylocaldomain.me  mylocaldomain.me aa:cd:fe:sf:fg:fg ```
 
-Note that hosts_info file is required if all you want to do is add the hosts to the ipa server without having to install the ipa-client on each host
+Note that hosts_info file is required if all you want to do is add the hosts to the ipa server without having to install the ipa-client on each host. 
+Example host_info.yml should like below
+
+```
+hosts_info: [
+  192.168.0.1  myhost.mylocaldomain.me  mylocaldomain.me aa:cd:fe:sf:fg:fg,
+  172.30.1.1  yourhost.yourlocaldomain.you  yourlocaldomain.you  bb:df:gf:hg:ee:1w
+]
+```

@@ -9,13 +9,14 @@
     - ipa_port: 
     - ipa_admin_username:
     - ipa_admin_password:
+    - install_ipa_client: false
   tasks:
     - name: Include IPA client Installation and Registration role 
       include_role:
         name: install-and-register-dns-client 
       when:
-        - hostvars[inventory_hostname]['install_ipa_client'] is defined
-        - hostvars[inventory_hostname]['install_ipa_client'] | bool == true
+        - install_ipa_client is defined
+        - install_ipa_client | bool
 
 
 - name: Register clients with IPA Server
@@ -23,10 +24,9 @@
   become: yes
   remote_user: "{{ ansible_user }}"
   vars:
-    - ansible_domain: 
-    - ipa_server:
-    - ipa_host:
-    - ipa_port: 
+    - ipa_server: 
+    - ipa_host: 
+    - ipa_port:
     - ipa_admin_username:
     - ipa_admin_password:
     - add_hosts_to_ipa: true
@@ -36,7 +36,7 @@
     - name: Include IPA clients registration tasks file
       include_role:
         name: install-and-register-dns-client
-        tasks_from: register-host-with-dns-server.yml
+        tasks_from: add-host-to-dns.yml 
       when:
         - add_hosts_to_ipa is defined
         - add_hosts_to_ipa | bool

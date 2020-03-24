@@ -1,4 +1,9 @@
+[all:vars]
+ansible_connection=ssh
+ansible_user=
+
 [ipa_hosts]
+localhost connection=local
 
 [ipa_clients]
 localhost connection=local
